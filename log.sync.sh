@@ -14,4 +14,6 @@ echo "Log Uploaded Successfully"
 sudo rm /home/ec2-user/scripts/logs/$today.tar.gz
 else
 echo "Error Uploading"
+echo "Sending Mail"
+aws ses send-email --from madushani.hda@gmail.com --to madushani.hda@gmail.com --subject "Alert" --text "Error uploading logs to the S3 bucket" >>/dev/null 2>&1
 fi

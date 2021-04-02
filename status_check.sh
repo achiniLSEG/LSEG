@@ -24,5 +24,7 @@ then
 mysql -h lesgtest-rds.czptvqzzxg9c.us-east-1.rds.amazonaws.com -P 3306 --user=admin --password=mysqldb2021 -e "use ServercontentDB;INSERT INTO Status_details(timestamp , serverstatus, webstatus) VALUES ('$time_stamp' , '$status', '$site');select * from Status_details;" >>/dev/null 2>&1
 else
 	echo "Website Not Working"
+	echo "Sending Mail"
+	aws ses send-email --from madushani.hda@gmail.com --to madushani.hda@gmail.com --subject "Alert" --text "Error loading the Website" >>/dev/null 2>&1
 fi
 
