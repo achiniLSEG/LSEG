@@ -1,0 +1,3 @@
+ssh -i public-key.pem ec2-user@52.44.102.170 "bash -s" < /home/ec2-user/scripts/status_check.sh
+ssh -i public-key.pem ec2-user@52.44.102.170 "bash -s" < /home/ec2-user/scripts/log.collect.sh
+
